@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <h2 class="mb-3">Liste des utilisateurs</h2>
 
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover" *ngIf="users$ | async as users; else loading">
     <thead class="table-dark">
       <tr>
         <th>Nom</th>
@@ -9,6 +9,7 @@
         <th>Email</th>
         <th>Téléphone</th>
         <th>Adresse</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
@@ -19,7 +20,14 @@
         <td>{{ user.email }}</td>
         <td>{{ user.tel }}</td>
         <td>{{ user.adresse }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="supprimer(user.id)">Supprimer</button>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <ng-template #loading>
+    <p>Chargement des utilisateurs...</p>
+  </ng-template>
 </div>

@@ -1,25 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule,
-          ],
+  imports: [CommonModule],
   templateUrl: './users.html',
   styleUrls: ['./users.scss']
 })
-export class Users implements OnInit {
+export class Users {
 
-  users: any[] = [];
+  // Observable qui contient les utilisateurs
+  users$: Observable<any[]>;
+  userLocal: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.users$ = this.http.get<any[]>('/data/user.json').pipe(
+      map(users => {
+        this.userLocal = [...users];
+        return this.userLocal;
+      })
+    );
+  }
 
-  ngOnInit(): void {
-    this.http.get<any[]>('/data/user.json').subscribe(data => {
-      this.users = data;
-      console.log('JSON chargé', this.users);
-    });
+  supprimer(user: any) {
+    this.userLocal = this.userLocal.filter(u => u.id !== user.id);
   }
 }
