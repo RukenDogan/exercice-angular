@@ -34,7 +34,7 @@ export class Users implements OnInit {
 
   ngOnInit(): void {
     // Charger les utilisateurs depuis le JSON
-    this.http.get<any[]>('/data/user.json').subscribe(data => {
+    this.http.get<any[]>('assets/data/user.json').subscribe(data => {
       this.users = data.map(u => ({
         ...u,
         age: this.userService.calculerAge(u.birthdate)
