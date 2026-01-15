@@ -22,7 +22,7 @@ export class UserDetail implements OnInit {
   ngOnInit(): void {
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.http.get<any[]>('assets/data/user.json').subscribe(users => {
+    this.http.get<any[]>('/assets/data/user.json').subscribe(users => {
       this.user = users.find(u => u.id === this.userId);
 
       this.possessions = [

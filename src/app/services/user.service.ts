@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'  // accessible partout
+  providedIn: 'root'
 })
 export class UserService {
-
-  constructor() {}
-
   calculerAge(birthdate: string): number | null {
-    if (!birthdate) return null; // pas de date
+    if (!birthdate) return null;
     const birth = new Date(birthdate);
     const today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
@@ -19,3 +16,4 @@ export class UserService {
     return age;
   }
 }
+
