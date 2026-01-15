@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Liste des utilisateurs</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Adresse</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.tel }}</td>
+        <td>{{ user.adresse }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

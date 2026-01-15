@@ -57,3 +57,19 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+## Enoncé 
+
+**1°** Importer le fichier de données ci-dessous dans un composant Angular et l'afficher dans la console.
+
+**2°** Afficher les informations dans un tableau bootstrap.
+
+**3°** ajouter un bouton supprimer(). Supprime un utilisateur du tableau. *(il n'est pas nécessaire de modifier le fichier)*
+
+**4°** Afficher les informations d'une personne sur une autre page quand on clique sur le nom de la personne. On doit retrouver les informations de la personne ainsi que ses possessions dans un tableau.
+
+**5°** Créer un service(UserService) qui permet de calculer son âge. Et ensuite afficher son âge dans le premier tableau affichant tous les utilisateurs.
+
+**6°** Créer une fenêtre modal et ajouter un formulaire permettant d'ajouter un nouvel utilisateur. *(il n'est pas nécessaire de modifier le fichier)*
