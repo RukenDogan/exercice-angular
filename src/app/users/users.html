@@ -1,6 +1,10 @@
 <div class="container mt-4">
   <h2 class="mb-3">Liste des utilisateurs</h2>
 
+  <!-- BOUTON POUR OUVRIR LA MODALE -->
+  <button class="btn btn-primary mb-3" (click)="openModal()">Ajouter un utilisateur</button>
+
+  <!-- TABLEAU -->
   <table class="table table-bordered table-hover" *ngIf="users$ | async as users; else loading">
     <thead class="table-dark">
       <tr>
@@ -13,10 +17,9 @@
         <th>Actions</th>
       </tr>
     </thead>
-
     <tbody>
       <tr *ngFor="let user of users">
-        <td><a [routerLink]="['/users', user.id]">{{ user.nom }}</a></td>
+        <td>{{ user.nom }}</td>
         <td>{{ user.prenom }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.tel }}</td>
@@ -32,4 +35,22 @@
   <ng-template #loading>
     <p>Chargement des utilisateurs...</p>
   </ng-template>
+
+  <!-- MODALE -->
+ <ng-container *ngIf="showModal()">
+  <div class="modal-backdrop fade show"></div>
+  <div class="modal fade show d-block" tabindex="-1" style="display:block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un utilisateur</h5>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-user (userAdded)="ajouterUtilisateur($event)" (close)="closeModal()"></app-add-user>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
 </div>

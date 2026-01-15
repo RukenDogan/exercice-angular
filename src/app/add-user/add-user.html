@@ -1,1 +1,27 @@
-<p>add-user works!</p>
+<form (ngSubmit)="submit()" #form="ngForm">
+  <div class="mb-3">
+    <label class="form-label">Nom</label>
+    <input type="text" class="form-control" [(ngModel)]="newUser.nom" name="nom" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Prénom</label>
+    <input type="text" class="form-control" [(ngModel)]="newUser.prenom" name="prenom" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="newUser.email" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Téléphone</label>
+    <input type="text" class="form-control" [(ngModel)]="newUser.tel" name="tel">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Adresse</label>
+    <input type="text" class="form-control" [(ngModel)]="newUser.adresse" name="adresse">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Date de naissance</label>
+    <input type="date" class="form-control" [(ngModel)]="newUser.birthdate" name="birthdate">
+  </div>
+  <button type="submit" class="btn btn-success">Ajouter</button>
+</form>
