@@ -5,9 +5,9 @@ import { Users } from './users/users';
 @Component({
   selector: 'app-root',
   imports: [
-            Users
+            RouterOutlet
         ],
-  templateUrl: './app.html',
+  template: `<router-outlet></router-outlet>`,
   styleUrl: './app.scss'
 })
 export class App {

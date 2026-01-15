@@ -9,17 +9,19 @@
         <th>Email</th>
         <th>Téléphone</th>
         <th>Adresse</th>
+        <th>Âge</th>
         <th>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{ user.nom }}</td>
+        <td><a [routerLink]="['/users', user.id]">{{ user.nom }}</a></td>
         <td>{{ user.prenom }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.tel }}</td>
         <td>{{ user.adresse }}</td>
+        <td>{{ user.age ?? 'Non renseigné' }}</td>
         <td>
           <button class="btn btn-danger btn-sm" (click)="supprimer(user.id)">Supprimer</button>
         </td>
