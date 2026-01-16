@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-add-user',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './add-user.component.html'
+  templateUrl: './add-user.html'
 })
 export class AddUserComponent {
   @Output() userAdded = new EventEmitter<any>();
